@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(PUT|POST|GET|DELETE) [NC]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Habilitar CORS (opcional)
+Header set Access-Control-Allow-Origin "*"
+Header set Access-Control-Allow-Headers "Origin, Authorization, X-Requested-With, Content-Type, Accept"
+Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
