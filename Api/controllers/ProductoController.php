@@ -30,3 +30,4 @@ class ProductoController {
     echo json_encode(['success' => $this->model->delete($id)]);
   }
 }
+?>
