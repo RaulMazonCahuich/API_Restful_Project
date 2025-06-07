@@ -8,3 +8,4 @@ class Database {
     return $conn;
   }
 }
+?>
