@@ -19,3 +19,4 @@ switch ($method) {
   case 'PUT': $controller->update($id, $data); break;
   case 'DELETE': $controller->destroy($id); break;
 }
+?>
