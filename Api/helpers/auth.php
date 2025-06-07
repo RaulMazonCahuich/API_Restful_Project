@@ -5,3 +5,4 @@ class Auth {
     return isset($headers['Authorization']) && $headers['Authorization'] === 'Bearer Raul12345';
   }
 }
+?>
