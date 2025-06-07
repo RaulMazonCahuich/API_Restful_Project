@@ -32,3 +32,4 @@ class Producto {
     return $this->conn->query("DELETE FROM productos WHERE id = $id");
   }
 }
+?>
