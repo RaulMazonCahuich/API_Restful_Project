@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Productos</title>
+    <title>Sistema de Gestión</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
     <div class="header">
-        <h1>Sistema de Productos</h1>
+        <h1>Sistema de Gestión</h1>
         <div class="controls">
             <button class="btn btn-success" onclick="toggleFormulario()">Nuevo Producto</button>
-            <button class="btn btn-secondary" onclick="generarReporte()">Generar Reporte PDF</button>
+            <button class="btn btn-secondary" onclick="toggleCategoriaForm()">Nueva Categoría</button>
+            <button class="btn btn-secondary" onclick="toggleProveedorForm()">Nuevo Proveedor</button>
+            <button class="btn btn-secondary" onclick="generarReporte()">Generar Reporte</button>
         </div>
     </div>
 
-    <div id="status" class="status"></div>
-    
-    <!-- Formulario -->
+    <!-- Formulario de productos-->
     <div id="formulario" class="form-section">
         <h3 id="form-title">Nuevo Producto</h3>
         <form id="product-form">
@@ -37,11 +37,13 @@
                 <label for="categoria_id">Categoría:</label>
                 <select id="categoria_id" required>
                     <option value="">Seleccionar...</option>
-                    <option value="1">Electrónicos</option>
-                    <option value="2">Ropa</option>
-                    <option value="3">Hogar</option>
-                    <option value="4">Deportes</option>
-                    <option value="5">Medicamento</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="proveedor_id">Proveedor:</label>
+                <select id="proveedor_id">
+                    <option value="">Seleccionar proveedor (opcional)...</option>
                 </select>
             </div>
             
@@ -51,7 +53,46 @@
             </div>
         </form>
     </div>
-    
+
+    <!-- Formulario de Categorías -->
+    <div id="categoria-form-container" class="form-section">
+        <h3 id="categoria-form-title">Nueva Categoría</h3>
+        <form id="categoria-form">
+            <div class="form-group">
+                <label for="categoria-nombre">Nombre:</label>
+                <input type="text" id="categoria-nombre" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-secondary" onclick="cancelarCategoriaForm()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Formulario de Proveedores -->
+    <div id="proveedor-form-container" class="form-section">
+        <h3 id="proveedor-form-title">Nuevo Proveedor</h3>
+        <form id="proveedor-form">
+            <input type="hidden" id="proveedor-id">
+            <div class="form-group">
+                <label for="proveedor-nombre">Nombre:</label>
+                <input type="text" id="proveedor-nombre" required>
+            </div>
+            <div class="form-group">
+                <label for="proveedor-telefono">Teléfono:</label>
+                <input type="tel" id="proveedor-telefono" required>
+            </div>
+            <div class="form-group">
+                <label for="proveedor-email">Email:</label>
+                <input type="email" id="proveedor-email" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-secondary" onclick="cancelarProveedorForm()">Cancelar</button>
+            </div>
+        </form>
+    </div>
+
     <!-- Lista de productos -->
     <div class="products-section">
         <h3>Lista de Productos</h3>
@@ -60,6 +101,23 @@
         </div>
     </div>
 
+    <!-- Lista de categorías -->
+    <div class="categories-section">
+        <h3>Categorías</h3>
+        <div id="categorias">
+            Cargando categorías...
+        </div>
+    </div>
+
+    <!-- Lista de proveedores -->
+    <div class="providers-section">
+        <h3>Proveedores</h3>
+        <div id="proveedores">
+            Cargando proveedores...
+        </div>
+    </div>
+
+    <div id="status" class="status"></div>
     <script src="script.js"></script>
 </body>
 </html>
